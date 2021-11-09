@@ -21,8 +21,8 @@ export class LoginComponent implements OnInit {
     private authService: AuthService
   ) {}
 
-  email = 'dotnetAdmin6@test.com';
-  password = 'Aa123456!';
+  email = '';
+  password = '';
   errorMessages: string[] = [];
   isLoginFailure: boolean = false;
   isLoading: boolean = false;
