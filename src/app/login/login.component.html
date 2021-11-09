@@ -1,0 +1,49 @@
+<form [formGroup]="form" (submit)="submit()">
+  <h1 class="h3 mb-3 fw-normal">Sign In</h1>
+
+  <input
+    type="email"
+    formControlName="email"
+    class="form-control mb-2"
+    placeholder="name@example.com"
+    autocomplete="off"
+  />
+  <span
+    class="text-danger"
+    *ngIf="
+    (registerFormControl['email'].touched || submitted) &&
+    registerFormControl['email'].errors?.['required']
+  "
+  >
+    Email is required
+  </span>
+
+  <!-- password -->
+  <input
+    type="password"
+    formControlName="password"
+    class="form-control mb-2"
+    placeholder="Password"
+    autocomplete="off"
+  />
+  <span
+    class="text-danger"
+    *ngIf="
+    (registerFormControl['password'].touched || submitted) &&
+    registerFormControl['password'].errors?.['required']
+  "
+  >
+    Password is required
+  </span>
+
+  <!-- loading -->
+  <div class="alert alert-info" *ngIf="isLoading" role="alert">
+    Attepmting to sign in...
+  </div>
+
+  <!-- error message -->
+  <div class="alert alert-warning" *ngIf="isLoginFailure" role="alert">
+    Login Failed...Please try again
+  </div>
+  <button class="w-100 btn btn-lg btn-primary" type="submit">Login</button>
+</form>
